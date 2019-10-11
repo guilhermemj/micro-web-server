@@ -33,7 +33,7 @@ var webServer = new WebServer({
 });
 
 webServer.start().then(function () {
-  console.log(`Web server started at port ${HTTP_PORT}`);
+  console.log("Web server started at port " + HTTP_PORT);
 });
 ```
 

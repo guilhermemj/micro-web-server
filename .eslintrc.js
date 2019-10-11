@@ -16,7 +16,6 @@ module.exports = {
   plugins: ['@typescript-eslint'],
 
   rules: {
-    // Following rules must be discussed
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'warn',
   },
