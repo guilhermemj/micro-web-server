@@ -1,18 +1,29 @@
 # Micro Web Server
 
-A simple and opinionated web server powered by express
+A simple and opinionated web server powered by [Express](http://expressjs.com/).
+
+> This documentation is a work in progress.
+
+- [Installation](#installation)
+- [Simple Usage](#simple-usage)
+  - [Javascript example](#javascript-example)
+  - [Typescript example](#typescript-example)
+- [Options](#options)
+  - [`httpPort`](#httpport)
+  - [`routes`](#routes)
+  - [`beforeEach`](#beforeeach)
 
 ## Installation
 
-> This package was not published yet
+> This package has not been published yet!
 
 ``` bash
 npm i @guilhermemj/micro-web-server
 ```
 
-## Usage
+## Simple Usage
 
-### Javascript
+### Javascript example
 
 ``` javascript
 var WebServer = require("@guilhermemj/micro-web-server");
@@ -37,7 +48,7 @@ webServer.start().then(function () {
 });
 ```
 
-### Typescript
+### Typescript example
 
 ``` typescript
 import WebServer, { Request, Response } from "@guilhermemj/micro-web-server";
@@ -62,3 +73,28 @@ const webServer = new WebServer({
   console.log(`Web server started at port ${HTTP_PORT}`);
 })();
 ```
+
+## Options
+
+`WebServer` constructor may receive an object with `httpPort`, `routes` and `beforeEach` properties.
+
+### `httpPort`
+
+- **Type:** `number`.
+- **Default:** `3000`.
+
+The HTTP port that the server will listen to.
+
+### `routes`
+
+- **Type:** `Array<Route>`.
+- **Default:** `[]`.
+
+Your application route definitions. Details will be described below.
+
+### `beforeEach`
+
+- **Type:** `Controller`.
+- **Default:** `null`.
+
+Middleware that should run before each route controller. It's usually used for logging purposes.
