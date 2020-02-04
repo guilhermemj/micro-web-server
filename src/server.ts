@@ -1,17 +1,19 @@
-import express, { Express } from 'express';
 import { createServer, Server } from 'http';
+import express, { Express } from 'express';
 import cors from 'cors';
 
 import { ServerOptions, Route } from './types';
 
 class WebServer {
   app: Express;
+  httpServer: Server | null = null;
 
   httpPort: number;
-  httpServer: Server;
+  beforeEach: ServerOptions['beforeEach'];
 
-  constructor(opt: ServerOptions) {
-    this.httpPort = opt.httpPort || 3000;
+  constructor(opt: ServerOptions = {}) {
+    this.httpPort = opt.httpPort ?? 3000;
+    this.beforeEach = opt.beforeEach;
 
     this.app = express();
 
@@ -31,6 +33,10 @@ class WebServer {
       middlewares = [],
     } = route;
 
+    if (this.beforeEach) {
+      middlewares.push(this.beforeEach);
+    }
+
     this.app[method](path, ...middlewares, controller);
 
     console.log(`Registered route ${method.toUpperCase()} ${path}`);
@@ -46,6 +52,11 @@ class WebServer {
 
   shutdown(): Promise<void> {
     return new Promise((resolve, reject) => {
+      if (!this.httpServer) {
+        resolve();
+        return;
+      }
+
       this.httpServer.close((err) => {
         if (err) {
           reject(err);

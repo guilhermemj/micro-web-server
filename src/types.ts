@@ -1,6 +1,6 @@
 import { ErrorRequestHandler, RequestHandler } from 'express';
 
-export type Controller = RequestHandler | ErrorRequestHandler;
+export type Controller = RequestHandler | ErrorRequestHandler | Array<Controller>;
 
 export type HttpMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'head' | 'options';
 
@@ -14,4 +14,5 @@ export interface Route {
 export interface ServerOptions {
   httpPort?: number;
   routes?: Array<Route>;
+  beforeEach?: Controller;
 }
