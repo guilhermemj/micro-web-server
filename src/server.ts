@@ -51,20 +51,13 @@ class WebServer {
   }
 
   shutdown(): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       if (!this.httpServer) {
         resolve();
         return;
       }
 
-      this.httpServer.close((err) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        resolve();
-      });
+      this.httpServer.close(() => resolve());
     });
   }
 }

@@ -1,6 +1,6 @@
 import { ErrorRequestHandler, RequestHandler } from 'express';
 
-export type Controller = RequestHandler | ErrorRequestHandler | Array<Controller>;
+export type Controller = RequestHandler | ErrorRequestHandler;
 
 export type HttpMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'head' | 'options';
 
