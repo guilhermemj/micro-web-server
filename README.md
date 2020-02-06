@@ -15,8 +15,6 @@ A simple and opinionated web server powered by [Express](http://expressjs.com/).
 
 ## Installation
 
-> This package has not been published yet!
-
 ``` bash
 npm i @guilhermemj/micro-web-server
 ```
