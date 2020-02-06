@@ -3,10 +3,8 @@ stages:
   - build
   - deploy
 
-cache:
-  key: $CI_PROJECT_NAME
-  paths:
-    - node_modules/
+default:
+  image: node:12-alpine
 
 # -------
 #  JOBS
@@ -15,7 +13,7 @@ cache:
 lint:
   stage: test
   script:
-    - npm install
+    - npm ci
     - npm run lint
 
 build:
@@ -25,7 +23,7 @@ build:
       - dist/
     name: "$CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG-$CI_JOB_ID"
   script:
-    - npm install
+    - npm ci
     - npm run build
 
 publish:
