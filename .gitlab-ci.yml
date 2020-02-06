@@ -34,4 +34,4 @@ publish:
     - tags
   script:
     - echo "//${NPM_REGISTRY_DOMAIN}/:_authToken=${NPM_AUTH_TOKEN}" >> .npmrc
-    - npm publish
+    - npm publish --access public
