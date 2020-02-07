@@ -1,7 +1,7 @@
 {
   "name": "@guilhermemj/micro-web-server",
   "version": "1.1.0",
-  "description": "A simple and opinionated web server powered by express",
+  "description": "A simple and opinionated web server powered by Express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:guilhermemj/micro-web-server.git"
+    "url": "git+https://github.com/guilhermemj/micro-web-server.git"
   },
   "keywords": [
     "microservices",
@@ -26,6 +26,10 @@
   ],
   "author": "Guilherme Jacomini <guilhermem.j@hotmail.com>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilhermemj/micro-web-server/issues"
+  },
+  "homepage": "https://github.com/guilhermemj/micro-web-server#readme",
   "dependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
