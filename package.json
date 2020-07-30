@@ -1,6 +1,6 @@
 {
   "name": "@guilhermemj/micro-web-server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple and opinionated web server powered by Express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
