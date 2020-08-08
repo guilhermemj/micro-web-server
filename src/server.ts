@@ -17,12 +17,16 @@ class WebServer {
 
     this.app = express();
 
-    this.app.use(cors());
-    this.app.use(express.json());
+    this.app.use(cors(opt.corsOptions));
+    this.app.use(express.json(opt.parserOptions));
 
     if (Array.isArray(opt.routes)) {
-      opt.routes.forEach(route => this.registerRoute(route));
+      this.registerRoutes(opt.routes);
     }
+  }
+
+  registerRoutes(routes: Array<Route>): void {
+    routes.forEach(route => this.registerRoute(route));
   }
 
   registerRoute(route: Route): void {

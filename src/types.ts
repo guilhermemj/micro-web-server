@@ -1,4 +1,6 @@
 import { ErrorRequestHandler, RequestHandler } from 'express';
+import { Options as BodyParserOptions } from 'body-parser';
+import { CorsOptions } from 'cors';
 
 export type Controller = RequestHandler | ErrorRequestHandler;
 
@@ -13,6 +15,8 @@ export interface Route {
 
 export interface ServerOptions {
   httpPort?: number;
+  parserOptions?: BodyParserOptions;
+  corsOptions?: CorsOptions;
   routes?: Array<Route>;
   beforeEach?: Controller;
 }

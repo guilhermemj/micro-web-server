@@ -10,6 +10,8 @@ A simple and opinionated web server powered by [Express](http://expressjs.com/).
   - [Typescript example](#typescript-example)
 - [Options](#options)
   - [`httpPort`](#httpport)
+  - [`parserOptions`](#parseroptions)
+  - [`corsOptions`](#corsoptions)
   - [`routes`](#routes)
   - [`beforeEach`](#beforeeach)
 
@@ -74,7 +76,7 @@ const webServer = new WebServer({
 
 ## Options
 
-`WebServer` constructor may receive an object with `httpPort`, `routes` and `beforeEach` properties.
+`WebServer` constructor accepts an object with the following properties:
 
 ### `httpPort`
 
@@ -82,6 +84,20 @@ const webServer = new WebServer({
 - **Default:** `3000`.
 
 The HTTP port that the server will listen to.
+
+### `parserOptions`
+
+- **Type:** `BodyParserOptions`.
+- **Default:** `undefined`.
+
+Options object passed to [express.json](https://expressjs.com/pt-br/api.html#express.json).
+
+### `corsOptions`
+
+- **Type:** `CorsOptions`.
+- **Default:** `undefined`.
+
+Options object passed to [cors](https://www.npmjs.com/package/cors).
 
 ### `routes`
 
@@ -93,6 +109,6 @@ Your application route definitions. Details will be described below.
 ### `beforeEach`
 
 - **Type:** `Controller`.
-- **Default:** `null`.
+- **Default:** `undefined`.
 
 Middleware that should run before each route controller. It's usually used for logging purposes.
