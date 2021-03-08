@@ -5,4 +5,6 @@ export {
   Request,
   Response,
   NextFunction,
+  RequestHandler,
+  ErrorRequestHandler,
 } from 'express';

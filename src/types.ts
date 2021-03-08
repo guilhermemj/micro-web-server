@@ -10,13 +10,13 @@ export interface Route {
   path: string;
   controller: Controller;
   method?: HttpMethod | 'all' | 'use';
-  middlewares?: Array<Controller>;
+  middlewares?: Controller[];
 }
 
 export interface ServerOptions {
   httpPort?: number;
   parserOptions?: BodyParserOptions;
   corsOptions?: CorsOptions;
-  routes?: Array<Route>;
+  routes?: Route[];
   beforeEach?: Controller;
 }

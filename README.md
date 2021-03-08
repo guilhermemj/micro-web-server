@@ -101,7 +101,7 @@ Options object passed to [cors](https://www.npmjs.com/package/cors).
 
 ### `routes`
 
-- **Type:** `Array<Route>`.
+- **Type:** `Route[]`.
 - **Default:** `[]`.
 
 Your application route definitions. Details will be described below.

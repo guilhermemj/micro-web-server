@@ -4,7 +4,7 @@ import cors from 'cors';
 
 import { ServerOptions, Route } from './types';
 
-class WebServer {
+export class WebServer {
   app: Express;
   httpServer: Server | null = null;
 
@@ -25,7 +25,7 @@ class WebServer {
     }
   }
 
-  registerRoutes(routes: Array<Route>): void {
+  registerRoutes(routes: Route[]): void {
     routes.forEach(route => this.registerRoute(route));
   }
 
@@ -65,7 +65,3 @@ class WebServer {
     });
   }
 }
-
-export {
-  WebServer,
-};
