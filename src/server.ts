@@ -42,8 +42,6 @@ export class WebServer {
     }
 
     this.app[method](path, ...middlewares, controller);
-
-    console.log(`Registered route ${method.toUpperCase()} ${path}`);
   }
 
   start(): Promise<void> {
